@@ -3,5 +3,6 @@ class Tree
     @root = build_tree(array)
   end
   def build_tree(array)
+    
   end
 end
