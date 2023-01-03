@@ -1,6 +1,6 @@
 class Node
   include Comparable
-  attr_accessor :data
+  attr_accessor :data, :left, :right
   def initialize(data, left, right)
     @data = data
     @left = left
