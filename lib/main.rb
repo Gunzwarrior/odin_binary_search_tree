@@ -29,3 +29,6 @@ p array
 p array[0]
 puts
 tree.pretty_print
+tree.insert(13)
+tree.insert(7)
+tree.pretty_print

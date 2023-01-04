@@ -19,6 +19,23 @@ class Tree
     array.sort!.uniq!
   end
 
+  def insert(value)
+    pointer = @root
+    second_pointer = pointer
+    until pointer.nil?
+      return "#{value} already exist in the tree" if value == pointer.data
+
+      second_pointer = pointer
+      if value < pointer.data
+        pointer = pointer.left
+      else
+        pointer = pointer.right
+      end
+    end
+    second_pointer.right = Node.new(value) if value > second_pointer.data
+    second_pointer.left = Node.new(value) if value < second_pointer.data
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
