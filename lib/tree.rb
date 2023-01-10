@@ -3,6 +3,7 @@ require_relative 'node'
 class Tree
   def initialize(array)
     @root = build_tree(clean_array(array))
+    @array = []
   end
   def build_tree(array)
     return nil if array == []
@@ -111,6 +112,43 @@ class Tree
       end
     end
     array unless block_given?
+  end
+
+  def level_order_rec(root = @root, &block)
+    h = height_level_order_rec
+    for i in 1..h+1
+      current_level_order_rec(i, block)
+    end
+    to_return = @array
+    @array = []
+    to_return
+  end
+
+  def current_level_order_rec(level, block, root = @root)
+   return if root.nil?
+    if level == 1
+      unless block.nil?
+        block.call root.data
+      else
+      @array.push(root.data)
+      end
+    else
+      current_level_order_rec(level-1, block, root.left)
+      current_level_order_rec(level-1, block, root.right)
+    end
+  end
+
+  def height_level_order_rec(root = @root)
+    return 0 if root.nil?
+
+    rheight = height_level_order_rec(root.left)
+    lheight = height_level_order_rec(root.right)
+
+    if lheight > rheight
+      return lheight+1
+    else
+      return rheight+1
+    end
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
