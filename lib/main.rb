@@ -37,3 +37,5 @@ tree.pretty_print
 tree.delete(26)
 tree.pretty_print
 p tree.find(3)
+p tree.level_order
+tree.level_order { |data| puts "#{data}"}
