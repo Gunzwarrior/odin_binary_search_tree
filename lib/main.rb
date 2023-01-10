@@ -49,3 +49,4 @@ p tree.pre_order
 tree.pre_order { |data| puts "#{data}"}
 p tree.post_order
 tree.post_order { |data| puts "#{data}"}
+p tree.depth

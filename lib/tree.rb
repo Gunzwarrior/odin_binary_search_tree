@@ -139,7 +139,7 @@ class Tree
   end
 
   def height(root = @root)
-    return 0 if root.nil?
+    return -1 if root.nil?
 
     rheight = height(root.left)
     lheight = height(root.right)
@@ -149,6 +149,10 @@ class Tree
     else
       return rheight+1
     end
+  end
+
+  def depth(root = @root)
+    height - height(root)
   end
 
   def in_order(root = @root, array = [], &block)
