@@ -176,6 +176,19 @@ class Tree
     array if block.nil?
   end
 
+  def post_order(root = @root, array = [], &block)
+    return if root.nil?
+    post_order(root.left, array, &block)
+    post_order(root.right, array, &block)
+   unless block.nil?
+   block.call root.data
+    else
+      array.push root.data
+  end
+
+    array if block.nil?
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
