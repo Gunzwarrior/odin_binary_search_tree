@@ -115,7 +115,7 @@ class Tree
   end
 
   def level_order_rec(root = @root, &block)
-    h = height_level_order_rec
+    h = height
     for i in 1..h+1
       current_level_order_rec(i, block)
     end
@@ -138,11 +138,11 @@ class Tree
     end
   end
 
-  def height_level_order_rec(root = @root)
+  def height(root = @root)
     return 0 if root.nil?
 
-    rheight = height_level_order_rec(root.left)
-    lheight = height_level_order_rec(root.right)
+    rheight = height(root.left)
+    lheight = height(root.right)
 
     if lheight > rheight
       return lheight+1
