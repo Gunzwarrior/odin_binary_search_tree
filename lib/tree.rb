@@ -36,6 +36,20 @@ class Tree
     second_pointer.left = Node.new(value) if value < second_pointer.data
   end
 
+  def insert_recur(value, root = @root)
+    return Node.new(value) if root.nil?
+
+    if root.data == value
+      root
+    elsif root.data < value
+      root.right = insert_recur(value, root.right)
+    else
+      root.left = insert_recur(value, root.left)
+    end
+
+    root
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

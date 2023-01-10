@@ -32,3 +32,5 @@ tree.pretty_print
 tree.insert(13)
 tree.insert(7)
 tree.pretty_print
+tree.insert_recur(46)
+tree.pretty_print
