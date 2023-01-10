@@ -42,3 +42,6 @@ tree.level_order { |data| puts "#{data}"}
 p tree.height_level_order_rec
 p tree.level_order_rec
 tree.level_order_rec { |data| puts "#{data}"}
+puts
+p tree.in_order
+tree.in_order { |data| puts "#{data}"}
