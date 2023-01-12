@@ -66,3 +66,5 @@ tree.insert(44)
 tree.pretty_print
 p tree.height
 p tree.balanced?
+tree.rebalance
+tree.pretty_print

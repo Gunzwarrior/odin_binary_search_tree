@@ -11,7 +11,6 @@ class Tree
     mid = (array.length)/2
     left = array[0...mid]
     right = array[mid+1..array.length-1]
-    p "mid is #{mid} left is #{left} right is #{right}"
 
     Node.new(array[mid], build_tree(left), build_tree(right))
 
@@ -198,7 +197,6 @@ class Tree
 
     lheight = height(root.left)
     rheight = height(root.right)
-    puts "root is #{root.data}, rheight is #{rheight}, lheight is #{lheight}, diff is #{lheight - rheight}"
     return false if (lheight - rheight) > 1 || (lheight - rheight) < -1
     
     balanced?(root.left)
@@ -206,6 +204,7 @@ class Tree
   end
 
 def rebalance
+  @root = build_tree(in_order)
 end
 
 
