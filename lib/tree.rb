@@ -193,6 +193,13 @@ class Tree
     array if block.nil?
   end
 
+  def balanced?(root = @root)
+    height_diff = height(root.left) - height(root.right)
+    return true if height_diff <= 1 && height_diff >= -1
+
+    false
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

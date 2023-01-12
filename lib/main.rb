@@ -50,3 +50,12 @@ tree.pre_order { |data| puts "#{data}"}
 p tree.post_order
 tree.post_order { |data| puts "#{data}"}
 p tree.depth
+p tree.balanced?
+tree.insert(42)
+p tree.balanced?
+tree.insert(43)
+p tree.balanced?
+tree.pretty_print
+tree.insert(4)
+p tree.balanced?
+tree.pretty_print
