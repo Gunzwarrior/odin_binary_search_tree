@@ -11,12 +11,13 @@ class Tree
     mid = (array.length)/2
     left = array[0...mid]
     right = array[mid+1..array.length-1]
-
     Node.new(array[mid], build_tree(left), build_tree(right))
 
   end
   def clean_array(array)
-    array.sort!.uniq!
+    sorted_array = array.sort
+    unique_array = sorted_array.uniq
+    unique_array
   end
 
   def insert(value)

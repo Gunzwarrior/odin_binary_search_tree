@@ -68,3 +68,29 @@ p tree.height
 p tree.balanced?
 tree.rebalance
 tree.pretty_print
+
+tree2 = Tree.new(Array.new(15) { rand(1..100) })
+tree2.pretty_print
+p tree2.balanced?
+tree2.level_order_rec { |data| print "#{data} "}
+puts
+tree2.pre_order { |data| print "#{data} "}
+puts
+tree2.post_order { |data| print "#{data} "}
+puts
+tree2.in_order { |data| print "#{data} "}
+puts
+15.times { tree2.insert_recur(rand(101..200))}
+tree2.pretty_print
+p tree2.balanced?
+tree2.rebalance
+tree2.pretty_print
+p tree2.balanced?
+tree2.level_order_rec { |data| print "#{data} "}
+puts
+tree2.pre_order { |data| print "#{data} "}
+puts
+tree2.post_order { |data| print "#{data} "}
+puts
+tree2.in_order { |data| print "#{data} "}
+puts
