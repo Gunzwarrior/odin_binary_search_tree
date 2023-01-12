@@ -52,10 +52,17 @@ tree.post_order { |data| puts "#{data}"}
 p tree.depth
 p tree.balanced?
 tree.insert(42)
+p tree.height
 p tree.balanced?
 tree.insert(43)
-p tree.balanced?
 tree.pretty_print
+p tree.height
+p tree.balanced?
 tree.insert(4)
-p tree.balanced?
 tree.pretty_print
+p tree.height
+p tree.balanced?
+tree.insert(44)
+tree.pretty_print
+p tree.height
+p tree.balanced?

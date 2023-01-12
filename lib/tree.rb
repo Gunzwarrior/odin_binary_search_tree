@@ -141,8 +141,8 @@ class Tree
   def height(root = @root)
     return -1 if root.nil?
 
-    rheight = height(root.left)
-    lheight = height(root.right)
+    lheight = height(root.left)
+    rheight = height(root.right)
 
     if lheight > rheight
       return lheight+1
@@ -194,11 +194,20 @@ class Tree
   end
 
   def balanced?(root = @root)
-    height_diff = height(root.left) - height(root.right)
-    return true if height_diff <= 1 && height_diff >= -1
+    return true if root.nil?
 
-    false
+    lheight = height(root.left)
+    rheight = height(root.right)
+    puts "root is #{root.data}, rheight is #{rheight}, lheight is #{lheight}, diff is #{lheight - rheight}"
+    return false if (lheight - rheight) > 1 || (lheight - rheight) < -1
+    
+    balanced?(root.left)
+    balanced?(root.right)
   end
+
+def rebalance
+end
+
 
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
